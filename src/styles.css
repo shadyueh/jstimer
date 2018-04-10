@@ -1,0 +1,41 @@
+@import url('http://fonts.googleapis.com/css?family=Open+Sans:300,400');
+@import url('https://fonts.googleapis.com/css?family=Exo+2');
+
+body {
+    background-image: url("AgileMeetupBG.png");
+    background-size: cover;
+    background-color: #363f48;
+    color: white;
+    font: normal 24px 'Open Sans', sans-serif;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.timer-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /*flex-direction:column;*/
+}
+
+.timer-container > div {
+    margin: 1.5rem;
+}
+.timer-container span {
+    font-size: 13em;
+    font-weight: 300;
+    line-height: 1em;
+}
+
+button {
+    background-color: Transparent;
+    background-repeat:no-repeat;
+    color: white;
+    border: none;
+    cursor:pointer;
+    overflow: hidden;
+    outline:none;
+}
