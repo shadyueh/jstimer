@@ -1,4 +1,4 @@
-@import url('http://fonts.googleapis.com/css?family=Open+Sans:300,400');
+@import url('http://fonts.googleapis.com/css?family=Open+Sans:300,400,700');
 @import url('https://fonts.googleapis.com/css?family=Exo+2');
 
 body {
@@ -18,20 +18,27 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
 }
 
-.timer-container span {
+.timer-container span, input[type='number'] {
     font-size: 13em;
     font-weight: 300;
     line-height: 1em;
 }
 
-#controls {
+.controls, .title {
     display: flex;
     justify-content: center;
 }
+.title h1{
+    font-weight: 700;
+    font-size: 3em;
+    margin: 0.2em;
+    white-space: nowrap;
+}
 
-#controls > button {
+.controls > button {
     background-color: transparent;
     background-repeat: no-repeat;
     color: white;
@@ -41,23 +48,20 @@ body {
     outline: none;
 }
 
-input[type='text'] {
-    margin: 40px 25px;
-    width: 200px;
-    display: block;
+input[type='number'] {
+    margin: 0px;
+    width: 1.2em;
+    height: 1em;
     border: none;
-    padding: 10px 0;
-    border-bottom: solid 1px $ color;
+    padding: 10px;
+    box-sizing: border-box;
+    border-bottom: solid 1px #1abc9c;
     transition: all 0.3s cubic-bezier(.64, .09, .08, 1);
-    background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 96%, $ color 4%);
-    background-position: -200px 0;
-    background-size: 200px 100%;
-    background-repeat: no-repeat;
-    /*color: darken(#1abc9c, 20%);*/
+    background: transparent;
+    color: #1abc9c;
 }
 
-input[type='text']:focus, input[type='text']:valid {
+input[type='number']:focus, input[type='number']:valid {
     box-shadow: none;
     outline: none;
-    background-position: 0 0;
 }

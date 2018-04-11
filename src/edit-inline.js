@@ -3,14 +3,6 @@ var editing  = false;
 var tag = 'SPAN';
 var w;
 
-//cria o botao
-if (document.getElementById && document.createElement) {
-    var butt = document.createElement('BUTTON');
-    var buttext = document.createTextNode('Ready!');
-    butt.appendChild(buttext);
-    butt.onclick = saveEdit;
-}
-
 function catchIt(e) {
     if (editing) return;
     if (!document.getElementById || !document.createElement) return;
@@ -24,12 +16,15 @@ function catchIt(e) {
         obj = obj.parentNode;
     }
     if (obj.nodeName == 'HTML') return;
-        w = obj;
+    w = obj;
     var x = obj.innerHTML;
     var y = document.createElement('INPUT');
     var z = obj.parentNode;
+    y.setAttribute('type','number');
+    y.setAttribute('maxlength','2');
+    y.setAttribute('min','0');
+    y.onblur = saveEdit;
     z.insertBefore(y,obj);
-    z.insertBefore(butt,obj);
     z.removeChild(obj);
     y.value = x;
     y.focus();
@@ -37,13 +32,12 @@ function catchIt(e) {
 }
 
 function saveEdit() {
-    var area = document.getElementsByTagName('INPUT')[0];
+    var field = document.querySelector('input[type=number]');
     var y = w;
-    var z = area.parentNode;
-    y.innerHTML = area.value;
-    z.insertBefore(y,area);
-    z.removeChild(area);
-    z.removeChild(document.getElementsByTagName('button')[0]);
+    var z = field.parentNode;
+    y.innerHTML = ('00'+field.value).substring(field.value.length);
+    z.insertBefore(y,field);
+    z.removeChild(field);
     editing = false;
 }
 
