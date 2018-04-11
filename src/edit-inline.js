@@ -1,5 +1,7 @@
 //flag para determinar se está editando
 var editing  = false;
+var tag = 'SPAN';
+var w;
 
 //cria o botao
 if (document.getElementById && document.createElement) {
@@ -9,7 +11,7 @@ if (document.getElementById && document.createElement) {
     butt.onclick = saveEdit;
 }
 
-function catchIt(e,tag) {
+function catchIt(e) {
     if (editing) return;
     if (!document.getElementById || !document.createElement) return;
     if (!e) var obj = window.event.srcElement;
@@ -17,13 +19,14 @@ function catchIt(e,tag) {
     while (obj.nodeType != 1) {
         obj = obj.parentNode;
     }
-    if (obj.tagName == 'TEXTAREA' || obj.tagName == 'A') return;
+    if (obj.tagName == 'INPUT' || obj.tagName == 'A') return;
     while (obj.nodeName != tag && obj.nodeName != 'HTML') {
         obj = obj.parentNode;
     }
     if (obj.nodeName == 'HTML') return;
+        w = obj;
     var x = obj.innerHTML;
-    var y = document.createElement('TEXTAREA');
+    var y = document.createElement('INPUT');
     var z = obj.parentNode;
     z.insertBefore(y,obj);
     z.insertBefore(butt,obj);
@@ -34,8 +37,8 @@ function catchIt(e,tag) {
 }
 
 function saveEdit() {
-    var area = document.getElementsByTagName('TEXTAREA')[0];
-    var y = document.createElement(tag);
+    var area = document.getElementsByTagName('INPUT')[0];
+    var y = w;
     var z = area.parentNode;
     y.innerHTML = area.value;
     z.insertBefore(y,area);
@@ -44,5 +47,5 @@ function saveEdit() {
     editing = false;
 }
 
-document.querySelector(".minute").onclick = catchIt(this,'span');
-document.querySelector(".second").onclick = catchIt(this,'span');
+document.querySelector(".minute").onclick = catchIt;
+document.querySelector(".second").onclick = catchIt;
