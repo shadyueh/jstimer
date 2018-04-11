@@ -10,20 +10,22 @@
 <body>
 <div class="timer-container" id="#run-the-timer">
     <div id="timer">
-        <span class="minute">00</span><span>:</span><span class="second">05</span>
+        <span class="minute">01</span><span>:</span><span class="second">00</span>
         <span class="timeout_message_show" style="display:none;">We are Sorry, your time is up !</span>
-        <div>
-            <button id="play"><i class="far fa-play-circle fa-7x"></i></button>
-        </div>
-    </div>
 
+    </div>
+    <div id="controls">
+        <button id="timer-play"><i class="far fa-play-circle fa-7x"></i></button>
+        <button id="timer-stop"><i class="far fa-stop-circle fa-7x"></i></button>
+    </div>
 </div>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.0.9/howler.js"></script>
 <script defer src="https://use.fontawesome.com/releases/v5.0.9/js/all.js"
         integrity="sha384-8iPTk2s/jMVj81dnzb/iFR2sdA7u06vHJyyLlAd4snFpCl/SnyUjRrbdJsw1pGIl"
         crossorigin="anonymous"></script>
-<!--<script type="text/javascript" src="edit-inline.js"></script>-->
+<script type="text/javascript" src="edit-inline.js"></script>
 <script type="text/javascript" src="timer.js"></script>
 </body>
 </html>
