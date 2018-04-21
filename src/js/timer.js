@@ -7,7 +7,7 @@ window.onload = function () {
     var btnPlay = '#timer-play';
     var btnStop = "#timer-stop";
     var sound = new Howl({
-        src: ['PowerStar.mp3']
+        src: ['sound/power_star.mp3']
     });
 
 
