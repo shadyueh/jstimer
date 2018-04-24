@@ -10,19 +10,20 @@ var gulp = require('gulp'),
     runSequence = require('run-sequence'),
     browserSync = require('browser-sync').create();
 
-var sassSources = ['src/styles/*.scss'],
+var sassSources = ['src/styles/**/*.scss'],
     jsSources = ['src/js/**/*.js'],
     htmlSources = ['src/**/*.html'],
     imgSources = ['src/images'],
     sndSources = ['src/sound/*'],
+    appStylesDir = 'src/styles',
     outputDir = 'dist';
 
 
 gulp.task('sass', function () {
-    gulp.src(sassSources)
+    return gulp.src(sassSources)
         .pipe(sass({style: 'expanded'}))
-        .on('error', gutil.log)
-        .pipe(gulp.dest(outputDir))
+        .on('error', sass.logError)
+        .pipe(gulp.dest(appStylesDir))
 });
 
 
@@ -36,25 +37,30 @@ gulp.task('useref', function () {
         .pipe(gulp.dest(outputDir))
 });
 
+
 gulp.task('images', function () {
     return gulp.src(imgSources + '/**/*.+(png|jpg|gif|svg)')
         .pipe(imagemin())
         .pipe(gulp.dest(outputDir + '/images'))
 });
 
+
 gulp.task('fonts', function () {
     return gulp.src('app/fonts/**/*')
         .pipe(gulp.dest(outputDir + '/fonts'))
 });
+
 
 gulp.task('sounds', function () {
     return gulp.src(sndSources)
         .pipe(gulp.dest(outputDir + '/sound'))
 });
 
+
 gulp.task('clean:dist', function () {
     return del.sync(outputDir)
 });
+
 
 gulp.task('browserSync', function () {
     browserSync.init({
@@ -67,11 +73,12 @@ gulp.task('browserSync', function () {
 
 
 gulp.task('watch', ['browserSync', 'sass'], function (){
-    gulp.watch(sassSources, ['sass']);
+    gulp.watch(sassSources, ['sass','useref',browserSync.reload]);
     // Reloads the browser whenever HTML or JS files change
     gulp.watch(htmlSources, browserSync.reload);
     gulp.watch(jsSources, browserSync.reload);
 });
+
 
 gulp.task('build', function (callback) {
     runSequence('clean:dist',
@@ -85,4 +92,3 @@ gulp.task('default', function (callback) {
         callback
     )
 });
-
