@@ -72,10 +72,10 @@ gulp.task('browserSync', function () {
 });
 
 
-gulp.task('watch', ['browserSync', 'sass'], function (){
+gulp.task('watch', function (){
     gulp.watch(sassSources, ['sass','useref',browserSync.reload]);
     // Reloads the browser whenever HTML or JS files change
-    gulp.watch(htmlSources, browserSync.reload);
+    gulp.watch(htmlSources, ['useref', browserSync.reload]);
     gulp.watch(jsSources, browserSync.reload);
 });
 
@@ -88,7 +88,7 @@ gulp.task('build', function (callback) {
 });
 
 gulp.task('default', function (callback) {
-    runSequence(['sass', 'browserSync', 'watch'],
+    runSequence('build', 'browserSync', 'watch',
         callback
     )
 });
