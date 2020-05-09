@@ -81,8 +81,8 @@ gulp.task('watch', function (){
 
 
 gulp.task('build', function (callback) {
-    runSequence('clean:dist',
-        ['sass', 'useref', 'images', 'sounds'],
+    runSequence('clean:dist', 'sass',
+        ['useref', 'images', 'sounds'],
         callback
     )
 });
