@@ -1,33 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <!--build:css css/styles.min.css-->
-    <link href="../node_modules/normalize.css/normalize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-    <link href="styles/styles.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+    <link
+      href="../node_modules/normalize.css/normalize.css"
+      type="text/css"
+      rel="stylesheet"
+      media="screen,projection"
+    />
+    <link
+      href="styles/styles.css"
+      type="text/css"
+      rel="stylesheet"
+      media="screen,projection"
+    />
     <!-- endbuild -->
-</head>
-<body>
-<div class="timer-container" id="#run-the-timer">
-    <div class="title"><h1>6º Agile Meetup Manaus</h1></div>
-    <div id="timer">
-        <span class="minute">10</span><span>:</span><span class="second">00</span>
-        <span class="timeout_message_show" style="display:none;">We are Sorry, your time is up !</span>
-
+  </head>
+  <body>
+    <div class="timer-container" id="#run-the-timer">
+      <div class="title"><h1>6º Agile Meetup Manaus</h1></div>
+      <div id="timer">
+        <span class="minute">10</span><span>:</span
+        ><span class="second">00</span>
+        <span class="timeout_message_show" style="display: none"
+          >We are Sorry, your time is up !</span
+        >
+      </div>
+      <div class="controls">
+        <button id="timer-play">
+          <i class="far fa-play-circle fa-7x"></i>
+        </button>
+        <button id="timer-stop">
+          <i class="far fa-stop-circle fa-7x"></i>
+        </button>
+      </div>
     </div>
-    <div class="controls">
-        <button id="timer-play"><i class="far fa-play-circle fa-7x"></i></button>
-        <button id="timer-stop"><i class="far fa-stop-circle fa-7x"></i></button>
-    </div>
-</div>
 
-<!--build:js js/main.min.js -->
-<script type="text/javascript" src="../node_modules/@fortawesome/fontawesome-free/js/all.js"></script>
-<script defer src="../node_modules/howler/dist/howler.js"></script>
-<script type="text/javascript" src="js/edit-inline.js"></script>
-<script type="text/javascript" src="js/timer.js"></script>
-<!-- endbuild -->
-</body>
+    <!--build:js js/main.min.js -->
+    <script
+      type="text/javascript"
+      src="../node_modules/@fortawesome/fontawesome-free/js/all.js"
+    ></script>
+    <script defer src="../node_modules/howler/dist/howler.js"></script>
+    <script type="text/javascript" src="js/edit-inline.js"></script>
+    <script type="text/javascript" src="js/timer.js"></script>
+    <!-- endbuild -->
+  </body>
 </html>

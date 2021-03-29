@@ -1,0 +1,49 @@
+@import url("http://fonts.googleapis.com/css?family=Open+Sans:300,400,700");
+@import url("https://fonts.googleapis.com/css?family=Exo+2");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-image: url("../images/AgileMeetupBG.png");
+  background-size: cover;
+  background-color: #363f48;
+  color: white;
+  font-family: "Open Sans", sans-serif;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+h1 {
+  font-weight: 700;
+  font-size: 3rem;
+  white-space: nowrap;
+}
+
+/* 
+
+
+input[type="number"] {
+  margin: 0px;
+  width: 1.2em;
+  height: 1em;
+  border: none;
+  padding: 10px;
+  box-sizing: border-box;
+  border-bottom: solid 1px #1abc9c;
+  transition: all 0.3s cubic-bezier(0.64, 0.09, 0.08, 1);
+  background: transparent;
+  color: #1abc9c;
+}
+
+input[type="number"]:focus,
+input[type="number"]:valid {
+  box-shadow: none;
+  outline: none;
+} */
