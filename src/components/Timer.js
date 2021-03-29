@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faPlayCircle,
@@ -7,12 +9,22 @@ import {
 import styles from "./Timer.module.css";
 
 export default function Timer() {
+  const initialTime = 0.05 * 60;
+  const [time, setTime] = useState(initialTime);
+  const [hasFinished, setHasFinished] = useState(false);
+
+  const minutes = Math.floor(time / 60);
+  const seconds = Math.floor(time % 60);
+
+  const txtMinutes = String(minutes).padStart(2, "0");
+  const txtSeconds = String(seconds).padStart(2, "0");
+
   return (
     <div className={styles.timer}>
       <div>
-        <span>10</span>
+        <span>{txtMinutes}</span>
         <span>:</span>
-        <span>00</span>
+        <span>{txtSeconds}</span>
       </div>
       <div className={styles.controls}>
         <button id='timer-play'>
@@ -22,7 +34,7 @@ export default function Timer() {
           <FontAwesomeIcon icon={faStopCircle} size='7x' />
         </button>
       </div>
-      <p>We are sorry. Your time is up !</p>
+      {hasFinished ?? <p>Time is up !</p>}
     </div>
   );
 }
