@@ -1,12 +1,14 @@
 {
   "name": "jstimer",
   "version": "1.0.0",
+  "private": true,
   "description": "A simple countdown timer",
   "main": "index.js",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "lint": "next lint"
   },
   "author": "Held Grijo",
   "license": "ISC",
@@ -15,11 +17,13 @@
     "@fortawesome/free-regular-svg-icons": "^5.15.3",
     "@fortawesome/react-fontawesome": "^0.1.14",
     "howler": "^2.2.1",
-    "next": "^10.1.1",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2"
+    "next": "^13.0.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   },
   "devDependencies": {
+    "eslint": "8.26.0",
+    "eslint-config-next": "13.0.0",
     "browser-sync": "^2.26.14"
   },
   "repository": "https://github.com/shadyueh/jstimer.git"
