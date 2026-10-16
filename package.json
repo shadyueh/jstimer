@@ -17,7 +17,7 @@
     "@fortawesome/free-regular-svg-icons": "^5.15.3",
     "@fortawesome/react-fontawesome": "^0.1.14",
     "howler": "^2.2.1",
-    "next": "15.4.6",
+    "next": "15.5.27",
     "react": "19.1.1",
     "react-dom": "19.1.1"
   },
